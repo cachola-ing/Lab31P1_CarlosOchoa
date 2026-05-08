@@ -29,28 +29,28 @@ public class Lab3P1_CarlosOchoa {
             opcion_menu = scanner.nextInt();
             
             if (opcion_menu == 1){
-                int n = 0;
-                int r = 0;
-                while(n <= 0 || r <= 0 || n < r){
+                int variable_n = 0;
+                int variable_r = 0;
+                while(variable_n <= 0 || variable_r <= 0 || variable_n < variable_r){
                     System.out.println("Ingrese el valor de n: ");
-                    n = scanner.nextInt();
+                    variable_n = scanner.nextInt();
                     
                     System.out.println("Ingrese el valor de r: ");
-                    r = scanner.nextInt();
+                    variable_r = scanner.nextInt();
                     
-                    if(n <= 0 || r <= 0 || n < r){
+                    if(variable_n <= 0 || variable_r <= 0 || variable_n < variable_r){
                         System.out.println("n no puede ser menor que r, y los dos tienen que ser positivos");
                     }
                     
                 }
-                int factorialN = 1;
+                int Factorial_N = 1;
                 int contador = 1;
                 
-                while (contador <= n){
-                    factorialN = factorialN * contador;
+                while (contador <= variable_n){
+                    Factorial_N = Factorial_N * contador;
                     contador++;
                 }
-                int resta = n - r;
+                int resta = variable_n - variable_r;
                 int factorialresta = 1;
                 contador = 1;
                 
@@ -58,59 +58,86 @@ public class Lab3P1_CarlosOchoa {
                     factorialresta = factorialresta * contador;
                     contador++;
                 }
-                int resultado = factorialN / factorialresta;
+                int resultado = Factorial_N / factorialresta;
                 
-                System.out.println("Resultado de P(" + n +","+ r +")= " + resultado);
+                System.out.println("Resultado de P(" + variable_n +","+ variable_r +")= " + resultado);
                 } else if(opcion_menu == 2){
-                    int numero1 = 0;
-                    int numero2 = 0;
+                    int nro1 = 0;
+                    int nro2 = 0;
                     
-                    while(numero1 < 1 || numero1 > 12){
+                    while(nro1 < 1 || nro1 > 12){
                         System.out.println("Ingrese el primer numero(1-12): ");
-                        numero1 = scanner.nextInt();
+                        nro1 = scanner.nextInt();
                         
-                        if(numero1 < 1 || numero1 > 12){
+                        if(nro1 < 1 || nro1 > 12){
                             System.out.println("Debe estar entre 1 y 12");
                         }
                     }
-                    while(numero2 < 1 || numero2 > 12){
+                    while(nro2 < 1 || nro2 > 12){
                         System.out.println("Ingrese el segundo numero (1-12): ");
-                        numero2 = scanner.nextInt();
+                        nro2 = scanner.nextInt();
                         
-                        if(numero2 < 1 || numero2 > 12){
+                        if(nro2 < 1 || nro2 > 12){
                             System.out.println("Debe estar entre 1 y 12");
                         }
                     }
                     int contador1 = 1;
                     while(contador1 <= 12){
-                        int valor1 = numero1 * contador1;
+                        int valor1 = nro1 * contador1;
                         int contador2 = 1;
-                        boolean existe = false;
+                        boolean valor_comun = false;
                         
                         while(contador2 <= 12){
-                            int valor2 = numero2 * contador2;
+                            int valor2 = nro2 * contador2;
                             
                             if (valor1 == valor2){
-                                existe = true;
+                                valor_comun = true;
                             }
                             contador2++;
                         }
-                        if(existe == true){
-                            System.out.println(valor1 + "");
+                        if(valor_comun == true){
+                            System.out.print(valor1 + "");
                         } else{
-                            System.out.println("__");
+                            System.out.print("__");
                         }
                         contador1++;
                     }
                     System.out.println("");
                 }  else if(opcion_menu == 3){
                     int valor;
-                    System.out.println("Ïngrese un numero impar mayor o igual a 7: ");
+                    System.out.println("Ingrese un numero impar mayor o igual a 7: ");
                     valor = scanner.nextInt();
                     
-                    int temporal = valor;
+                    int provisional = valor;
                     
-                    while(temporal != 0 && temporal != 1){
+                    while(provisional != 0 && provisional != 1){
+                        provisional = provisional - 2;
+                    }
+                    
+                   if (valor < 7 || provisional == 0){
+                       System.out.println("Tiene que ser impar y >= 7");
+                   } else {
+                       int fila = 1;
+                       
+                       while(fila <= valor){
+                           int columna = 1;
+                           while(columna <= valor){
+                               
+                               if(fila == 1 || columna == fila || columna == valor){
+                                   System.out.print("*");
+                               }else{
+                                   System.out.print(" ");
+                               }
+                               columna++;
+                           }
+                           System.out.println("");
+                           fila++;
+                       }
+                   }
+                } else if (opcion_menu == 0){
+                    System.out.println("Saliendi...");
+                } else {
+                    System.out.println("Opcion no valida"); 
                 }
             }
         }
