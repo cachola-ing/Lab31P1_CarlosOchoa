@@ -89,9 +89,29 @@ public class Lab3P1_CarlosOchoa {
                         
                         while(contador2 <= 12){
                             int valor2 = numero2 * contador2;
+                            
+                            if (valor1 == valor2){
+                                existe = true;
+                            }
+                            contador2++;
                         }
+                        if(existe == true){
+                            System.out.println(valor1 + "");
+                        } else{
+                            System.out.println("__");
+                        }
+                        contador1++;
                     }
-                }  
+                    System.out.println("");
+                }  else if(opcion_menu == 3){
+                    int valor;
+                    System.out.println("Ïngrese un numero impar mayor o igual a 7: ");
+                    valor = scanner.nextInt();
+                    
+                    int temporal = valor;
+                    
+                    while(temporal != 0 && temporal != 1){
+                }
             }
         }
         
